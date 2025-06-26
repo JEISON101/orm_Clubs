@@ -4,6 +4,7 @@ import Jugador from './jugador.js'
 import * as relations from '@adonisjs/lucid/types/relations'
 
 export default class Pais extends BaseModel {
+  public static table = 'paises'
   @column({ isPrimary: true })
   declare cod_pais: number
 

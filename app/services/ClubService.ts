@@ -16,7 +16,9 @@ export class ClubServices {
     
     async updateClub(cod_club:number, data:any){
         const club = await Club.findByOrFail('cod_club',cod_club)
-        club.merge(data).save()
+        await club.merge(data)
+        await club.save()
+        return club
     }
     
     async deleteClub(cod_club:number){

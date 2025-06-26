@@ -16,11 +16,13 @@ export class PaisService {
     
     async updatePais(cod_pais:number, data:any){
         const pais = await Pais.findByOrFail('cod_pais',cod_pais)
-        pais.merge(data).save()
+        await pais.merge(data)
+        await pais.save()
+        return pais
     }
     
     async deletePais(cod_pais:number){
-        const club = await Pais.findByOrFail('cod_pais', cod_pais)
-        return await club.delete()
+        const pais = await Pais.findByOrFail('cod_pais', cod_pais)
+        return await pais.delete()
     }  
 }

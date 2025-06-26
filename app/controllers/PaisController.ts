@@ -33,7 +33,7 @@ export class PaisController {
 
     async eliminarPais({params, response}:HttpContext){
         try {
-            await paisService.deletePais(params.cod_club)
+            await paisService.deletePais(params.cod_pais)
             return response.json({mjs:'EL PAIS HA SIDO ELIMINADO EXITOSAMENTE'})
         } catch (error) {
             return response.json({mjs:' OCURRIÓ UN PROBLEMA AL ELIMINAR EL PAIS', error:error})

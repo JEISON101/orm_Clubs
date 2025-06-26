@@ -16,7 +16,9 @@ export class DemarcacionService {
     
     async updateDemarcacion(cod_dem:number, data:any){
         const demarcacion = await Demarcacion.findByOrFail('cod_dem',cod_dem)
-        demarcacion.merge(data).save()
+        await demarcacion.merge(data)
+        await demarcacion.save()
+        return demarcacion
     }
     
     async deleteDemarcacion(cod_dem:number){
